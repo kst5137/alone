@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form  action = "/Video/upload" method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+<!--&lt;!&ndash;    {{ form.title }}&ndash;&gt;  하나씩 뽑아오기-->
+    <div>
+        제목 : {{ form.title }}
+    </div>
+    <div>
+        태그 : {{ form.tag }}
+    </div>
+    <div>
+        업로드할 내용 : {{ form.file }}
+    </div>
+
+    <button type="submit">Upload</button>
+</form>
+
+</body>
