@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<select onchange="selectBoxChange(this.value);">
+  <option value="봄">봄</option>
+  <option value="여름">여름</option>
+  <option value="가을">가을</option>
+  <option value="겨울">겨울</option>
+</select>
+</body>
+
+<script>
+    function selectBoxChange(value) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function()
+            {
+                if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 )
+                    {
+                        console.log('test');
+                    }
+            };
+
+        httpRequest.open("GET", "/Video/tag/" + value , true);
+        httpRequest.send();
+        console.log(value);
+    }
+</script>
+
+</html>
+

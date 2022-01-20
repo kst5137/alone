@@ -10,6 +10,17 @@ from Video.models import Video
 
 from .forms import VideoForm
 
+def test2(request):
+
+    return render(request, 'Video/test2.html')
+
+def getTag(request, tags):
+    print(tags)
+    return JsonResponse({'message':'value'})
+
+
+
+
 
 
 def upload(request):
@@ -24,7 +35,7 @@ def upload(request):
         if videoform.is_valid():
             video = videoform.save()
             video.save()
-            return redirect('/Video/list')
+            return redirect('/Video/mylist')
         else:
             videoform = VideoForm()
     return render(request, 'Video/upload.html', {'form': videoform})
@@ -39,15 +50,34 @@ def posts(request):
     return render(request, 'video/list.html',
                   {'posts': posts})
 
+def myposts(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
+
+    return render(request, 'video/mylist.html',
+                  {'posts': posts})
+
 def read(request, bid) :
     post = Video.objects.get( Q(id=bid))
     #posts = Board.objects.all()
     return render(request, 'Video/read.html',{'read' : post})
     # #board/read.html페이지를 보여주고 Board.objects.get( Q(id=bid))의 값
     # 을 'read'로 저장한다.
+def readmine(request, bid) :
+    post = Video.objects.get( Q(id=bid))
+    #posts = Board.objects.all()
+    return render(request, 'Video/readmine.html',{'read' : post})
+    # #board/read.html페이지를 보여주고 Board.objects.get( Q(id=bid))의 값
+    # 을 'read'로 저장한다.
 
+# def list_tag(request, tag) :
+#     post = Video.objects.get(Q(tag=tag))
+#     return render(request, 'Video/list_music.html',{'list' : post})
 
+def tag_mu(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
 
+    return render(request, 'video/list_music.html',
+                  {'posts': posts})
 
 def delete(request, bid) :
     post = Video.objects.get(Q(id = bid))

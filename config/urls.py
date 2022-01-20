@@ -25,7 +25,12 @@ urlpatterns = [
     path('', Video.views.ss),
     path('Video/upload',Video.views.upload),
     path('Video/list',Video.views.posts),
+    path('Video/mylist',Video.views.myposts),
+    path('Video/test2', Video.views.test2),
+    path('Video/tag/<str:tags>', Video.views.getTag),
+    path('Video/list/music', Video.views.tag_mu),
     path('Video/read/<int:bid>', Video.views.read),
     path('Video/delete/<int:bid>', Video.views.delete),
     path('Video/update/<int:bid>', Video.views.update),
+    path('Video/readmine/<int:bid>', Video.views.readmine),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

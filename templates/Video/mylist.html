@@ -2,44 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>list</title>
+    <title>mylist</title>
 </head>
 <body>
 
 
 <div class="container">
-    <div> 태그 목록
-        <div>
-            <a href="http://localhost:8000/Video/list/music"> 음악</a>
-        </div>
-        <div>
-            <a href="http://localhost:8000/Video/read/1"> 예능</a>
-        </div>
-        <div>
-            <a href="http://localhost:8000/Video/read/1"> 자연</a>
-        </div>
-        <div>
-            <a href="http://localhost:8000/Video/read/1"> 학습</a>
-        </div>
-    </div>
+
 
     <table>
         <thead>
         <div>
-
             <th> 번호</th>
-            <th> 파일</th>
             <th> 제목</th>
             <th> 태그</th>
-
+            <th> 파일</th>
             <th> 작성시간</th>
-
+            <th> 수정/삭제</th>
         </div>
         </thead>
         {% if posts %}
         {% for post in posts %}
-        <div>
-
+        <tr>
             <div>
                 <td> {{ post.id}}</td>
                 <td><a href="http://localhost:8000/Video/read/{{ post.id }}"> <img src="/media/{{post.file}} "
@@ -51,9 +35,7 @@
 
                 <td>{{ post.create_date }}</td>
             </div>
-
-        </div>
-
+        </tr>
 
         <tr>
             <!--            {% if request.user == read.writer %}-->
@@ -70,11 +52,11 @@
             <!--            {% endif %}-->
         </tr>
         {% endfor %}
-        <!--        <div>-->
-        <!--            <a href="http://localhost:8000/Video/upload">-->
-        <!--                <button> 영상 추가</button>-->
-        <!--            </a>-->
-        <!--        </div>-->
+        <div>
+            <a href="http://localhost:8000/Video/upload">
+                <button> 영상 추가</button>
+            </a>
+        </div>
         {% endif %}
 
     </table>
