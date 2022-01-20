@@ -40,6 +40,8 @@
 
         {% for post in posts %}
 
+        {% if post.tag == "음악" %}
+
 
         <div>
 
@@ -73,7 +75,7 @@
             <!--            {% endif %}-->
         </tr>
 
-
+        {% endif %}
         {% endfor %}
         <!--        <div>-->
         <!--            <a href="http://localhost:8000/Video/upload">-->
