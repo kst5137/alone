@@ -24,5 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Video.views.ss),
     path('Video/upload',Video.views.upload),
-    path('Video/list',Video.views.posts)
+    path('Video/list',Video.views.posts),
+    path('Video/read/<int:bid>', Video.views.read),
+    path('Video/delete/<int:bid>', Video.views.delete),
+    path('Video/update/<int:bid>', Video.views.update),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

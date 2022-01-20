@@ -44,7 +44,7 @@
                 <td> {{ post.id}}</td>
                 <td> {{ post.title}}</td>
                 <td> {{ post.tag }}</td>
-                <td> {{ post.file }}</td>
+                <td> <img src="/media/{{post.file}}" width="100"> </td>
                 <td>{{ post.create_date }}</td>
                 <td>
                     <a href="/board/update/{{read.id}}">
@@ -57,7 +57,7 @@
                     </a>
                 </td>
 
-                            <td>{{ post.uploadtime }}</td>
+
             </div>
         </tr>
 
