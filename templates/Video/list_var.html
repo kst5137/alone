@@ -6,14 +6,16 @@
 </head>
 <body>
 
+
 <div>
     <a href="http://localhost:8000/Video/list"> 홈버튼 </a>
 </div>
+
 <br>
 <br>
 
 <div class="container">
-    <div>
+   <div>
         <div>
             <a href="http://localhost:8000/Video/list/music"> 음악</a>
         </div>
@@ -42,7 +44,12 @@
         </div>
         </thead>
         {% if posts %}
+
         {% for post in posts %}
+
+        {% if post.tag == "예능" %}
+
+
         <div>
 
             <div>
@@ -74,14 +81,18 @@
             <!--            </td>-->
             <!--            {% endif %}-->
         </tr>
+
+
+
+         {% endif %}
+
         {% endfor %}
         <!--        <div>-->
         <!--            <a href="http://localhost:8000/Video/upload">-->
         <!--                <button> 영상 추가</button>-->
         <!--            </a>-->
-        <!--        </div>-->
-        {% endif %}
 
+         {% endif %}
     </table>
 
 

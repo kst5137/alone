@@ -6,20 +6,25 @@
 </head>
 <body>
 
+<div>
+    <a href="http://localhost:8000/Video/list"> 홈버튼 </a>
+</div>
+<br>
+<br>
 
 <div class="container">
-    <div> 태그 목록
+   <div>
         <div>
             <a href="http://localhost:8000/Video/list/music"> 음악</a>
         </div>
         <div>
-            <a href="http://localhost:8000/Video/read/1"> 예능</a>
+            <a href="http://localhost:8000/Video/list/var"> 예능</a>
         </div>
         <div>
-            <a href="http://localhost:8000/Video/read/1"> 자연</a>
+            <a href="http://localhost:8000/Video/list/geo"> 자연</a>
         </div>
         <div>
-            <a href="http://localhost:8000/Video/read/1"> 학습</a>
+            <a href="http://localhost:8000/Video/list/edu"> 학습</a>
         </div>
     </div>
 
@@ -39,6 +44,8 @@
         {% if posts %}
 
         {% for post in posts %}
+
+        {% if post.tag == "음악" %}
 
 
         <div>
@@ -73,6 +80,9 @@
             <!--            {% endif %}-->
         </tr>
 
+
+
+         {% endif %}
 
         {% endfor %}
         <!--        <div>-->

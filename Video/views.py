@@ -73,10 +73,25 @@ def readmine(request, bid) :
 #     post = Video.objects.get(Q(tag=tag))
 #     return render(request, 'Video/list_music.html',{'list' : post})
 
-def tag_mu(request):
+def list_music(request):
     posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
 
     return render(request, 'video/list_music.html',
+                  {'posts': posts})
+def list_var(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
+
+    return render(request, 'video/list_var.html',
+                  {'posts': posts})
+def list_geo(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
+
+    return render(request, 'video/list_geo.html',
+                  {'posts': posts})
+def list_edu(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
+
+    return render(request, 'video/list_edu.html',
                   {'posts': posts})
 
 def delete(request, bid) :
