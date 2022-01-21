@@ -1,67 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>list</title>
-</head>
-<body>
+{% extends 'layout/base.html' %}
+{% block content %}
+{% load static %}
 
 
-<div>
-    <a href="http://localhost:8000/Video/list"> 홈버튼 </a>
-</div>
+
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container"> <h1>여기는 자연 </h1>
 
-<div class="container">
-   <div>
-        <div>
-            <a href="http://localhost:8000/Video/list/music"> 음악</a>
-        </div>
-        <div>
-            <a href="http://localhost:8000/Video/list/var"> 예능</a>
-        </div>
-        <div>
-            <a href="http://localhost:8000/Video/list/geo"> 자연</a>
-        </div>
-        <div>
-            <a href="http://localhost:8000/Video/list/edu"> 학습</a>
-        </div>
-    </div>
+<select onchange="test(this.value);">
+        <option value="선택전">선택전</option>
+        <option value="음악">음악</option>
+        <option value="예능">예능</option>
+        <option value="자연">자연</option>
+        <option value="학습">학습</option>
+    </select>
+<br>
+<br>
 
-    <table>
-        <thead>
-        <div>
+<!--   <div>-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8000/Video/list/music"> 음악</a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8000/Video/list/var"> 예능</a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8000/Video/list/geo"> 자연</a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8000/Video/list/edu"> 학습</a>-->
+<!--        </div>-->
+<!--    </div>-->
 
-            <th> 번호</th>
-            <th> 파일</th>
-            <th> 제목</th>
-            <th> 태그</th>
 
-            <th> 작성시간</th>
-
-        </div>
-        </thead>
-        {% if posts %}
+     {% if posts %}
 
         {% for post in posts %}
 
         {% if post.tag == "자연" %}
 
-
         <div>
 
-            <div>
-                <td> {{ post.id}}</td>
-                <td><a href="http://localhost:8000/Video/read/{{ post.id }}"> <img src="/media/{{post.file}} "
-                                                                                   width="100"> </a></td>
+            <div class="videobox">
+                <!--                <tbody>-->
+                <div> {{ post.id}}</div>
+                <div><a href="http://localhost:8000/Video/read/{{ post.id }}"> <img src="/media/{{post.file}} "
+                                                                                    width="300"> </a></div>
 
-                <td> {{ post.title}}</td>
-                <td> {{ post.tag }}</td>
+                <div> {{ post.title}}</div>
+                <div> {{ post.tag }}</div>
 
 
-                <td>{{ post.create_date }}</td>
+                <div>{{ post.create_date }}</div>
+                <!--                </tbody>-->
+                <br>
+                <br>
             </div>
 
         </div>
@@ -83,8 +86,7 @@
         </tr>
 
 
-
-         {% endif %}
+        {% endif %}
 
         {% endfor %}
         <!--        <div>-->
@@ -92,18 +94,25 @@
         <!--                <button> 영상 추가</button>-->
         <!--            </a>-->
 
-         {% endif %}
-    </table>
+        {% endif %}
 
 
     <script>
-
+ function test(value) {
+        if (value==='음악') {
+            location.href='/Video/list/music';
+        } else if (value==='예능') {
+            location.href='/Video/list/var';
+        } else if (value==='자연') {
+            location.href='/Video/list/geo';
+        } else if (value==='학습') {
+            location.href='/Video/list/edu';
+        }
+    }
 
     </script>
 
 
 </div>
 
-
-</body>
-</html>
+{% endblock %}
