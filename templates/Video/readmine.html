@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'layout/base.html' %}
+{% block content %}
+{% load static %}
 
-    <style>
-      video { width : 300; display: block; margin: 20px auto; }
-
-
-    </style>
-</head>
-<body>
     {% if read %}   <!--read안에 데이터가 담겨 있으면 반복문을 실행한다. -->
               <div>
                 <tr>
@@ -33,5 +24,4 @@
     {% endif %}
 
 
-</body>
-</html>
+{% endblock %}

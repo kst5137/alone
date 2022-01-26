@@ -3,6 +3,7 @@
 {% load static %}
 
 
+
 <br>
 <br>
 <br>
@@ -13,7 +14,8 @@
 <br>
 <br>
 <br>
-<div class="container"> <h1>여기는 음악 </h1>
+
+<div class="container"><h1> 여기는 예능 </h1>
 <select onchange="test(this.value);">
         <option value="선택전">선택전</option>
         <option value="음악">음악</option>
@@ -39,11 +41,11 @@
 <!--        </div>-->
 <!--    </div>-->
 
-     {% if posts %}
+    {% if posts %}
 
         {% for post in posts %}
 
-        {% if post.tag == "음악" %}
+        {% if post.tag == "예능" %}
 
         <div>
 

@@ -16,7 +16,14 @@ def test2(request):
 
 def getTag(request, tags):
     print(tags)
-    return JsonResponse({'message':'value'})
+    posts = Video.objects.all().filter(tag=tags)
+
+    json = []
+    for post in posts:
+        json_post = {'id' : post.id, 'title': post.title, 'tag':post.tag, 'file':post.file.name, 'file2':post.file2.name}
+        json.append(json_post)
+
+    return JsonResponse({'message':json})
 
 
 
@@ -42,7 +49,7 @@ def upload(request):
 
 def ss(request):
 
-    return render(request, 'Video/main.html')
+    return render(request, 'layout/base.html')
 
 def posts(request):
     posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
@@ -58,8 +65,9 @@ def myposts(request):
 
 def read(request, bid) :
     post = Video.objects.get( Q(id=bid))
+    posts = Video.objects.all()
     #posts = Board.objects.all()
-    return render(request, 'Video/read.html',{'read' : post})
+    return render(request, 'Video/read.html',{'read' : post, 'posts':posts })
     # #board/read.html페이지를 보여주고 Board.objects.get( Q(id=bid))의 값
     # 을 'read'로 저장한다.
 def readmine(request, bid) :
@@ -73,10 +81,25 @@ def readmine(request, bid) :
 #     post = Video.objects.get(Q(tag=tag))
 #     return render(request, 'Video/list_music.html',{'list' : post})
 
-def tag_mu(request):
+def list_music(request):
     posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
 
     return render(request, 'video/list_music.html',
+                  {'posts': posts})
+def list_var(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
+
+    return render(request, 'video/list_var.html',
+                  {'posts': posts})
+def list_geo(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
+
+    return render(request, 'video/list_geo.html',
+                  {'posts': posts})
+def list_edu(request):
+    posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
+
+    return render(request, 'video/list_edu.html',
                   {'posts': posts})
 
 def delete(request, bid) :

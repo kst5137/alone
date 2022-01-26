@@ -1,7 +1,16 @@
 {% extends 'layout/base.html' %}
 {% block content %}
 {% load static %}
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
         <!-- Portfolio Section Heading-->
@@ -38,37 +47,7 @@
         </div>
     </div>
 
-    <script>
 
-                function sendLike(bid, event)
-                 {
-                    var httpRequest = new XMLHttpRequest();
-			        httpRequest.onreadystatechange = function()
-			            {
-				            if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 )
-				                {
-
-<!--									console.log(httpRequest.responseText);-->
-                                        var json = JSON.parse(httpRequest.responseText);
-
-                                        if (json['message'] == 'add') {
-                                            event.innerText = "♥"
-                                            event.nextSibling.nextSibling.innerText = json['like_cnt'];
-                                        }
-                                        else if (json['message'] == 'del') {
-                                            event.innerText = "♡"
-                                            event.nextSibling.nextSibling.innerText = json['like_cnt'];
-                                        }
-
-				                }
-			            };
-
-			        httpRequest.open("GET", "/board/like/" + bid , true);
-			        httpRequest.send();
-                 }
-
-
-    </script>
 
 
 </section>

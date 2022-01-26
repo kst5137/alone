@@ -1,22 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>mylist</title>
-</head>
-<body>
+{% extends 'layout/base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
+<!--<div class="container">-->
+<!--    <select onchange="test(this.value);">-->
+<!--      <option value="음악">음악</option>-->
+<!--      <option value="예능">예능</option>-->
+<!--      <option value="자연">자연</option>-->
+<!--      <option value="학습">학습</option>-->
+<!--    </select>-->
 <div class="container">
-
+    <div>
+        <a href="http://localhost:8000/Video/upload">
+            <button> 영상 추가</button>
+        </a>
+    </div>
 
     <table>
         <thead>
         <div>
             <th> 번호</th>
+            <th> 썸네일</th>
             <th> 제목</th>
             <th> 태그</th>
-            <th> 파일</th>
             <th> 작성시간</th>
             <th> 수정/삭제</th>
         </div>
@@ -52,24 +69,20 @@
             <!--            {% endif %}-->
         </tr>
         {% endfor %}
-        <div>
-            <a href="http://localhost:8000/Video/upload">
-                <button> 영상 추가</button>
-            </a>
-        </div>
-        {% endif %}
 
-    </table>
+</div>
+{% endif %}
+
+</table>
 
 
-    <script>
+<script>
 
 
-    </script>
+</script>
 
 
 </div>
 
 
-</body>
-</html>
+{% endblock %}

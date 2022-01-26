@@ -3,6 +3,7 @@
 {% load static %}
 
 
+
 <br>
 <br>
 <br>
@@ -13,7 +14,10 @@
 <br>
 <br>
 <br>
-<div class="container"> <h1>여기는 음악 </h1>
+
+
+<div class="container"> <h1>여기는 학습 </h1>
+
 <select onchange="test(this.value);">
         <option value="선택전">선택전</option>
         <option value="음악">음악</option>
@@ -24,26 +28,41 @@
 <br>
 <br>
 
-<!--   <div>-->
-<!--        <div>-->
-<!--            <a href="http://localhost:8000/Video/list/music"> 음악</a>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <a href="http://localhost:8000/Video/list/var"> 예능</a>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <a href="http://localhost:8000/Video/list/geo"> 자연</a>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <a href="http://localhost:8000/Video/list/edu"> 학습</a>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--   <div>-->
+    <!--        <div>-->
+    <!--            <a href="http://localhost:8000/Video/list/music"> 음악</a>-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--            <a href="http://localhost:8000/Video/list/var"> 예능</a>-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--            <a href="http://localhost:8000/Video/list/geo"> 자연</a>-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--            <a href="http://localhost:8000/Video/list/edu"> 학습</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
 
-     {% if posts %}
+
+
+
+<!--        <thead>-->
+<!--        <div>-->
+
+<!--            <th> 번호</th>-->
+<!--            <th> 파일</th>-->
+<!--            <th> 제목</th>-->
+<!--            <th> 태그</th>-->
+
+<!--            <th> 작성시간</th>-->
+
+<!--        </div>-->
+<!--        </thead>-->
+        {% if posts %}
 
         {% for post in posts %}
 
-        {% if post.tag == "음악" %}
+        {% if post.tag == "학습" %}
 
         <div>
 
@@ -93,6 +112,7 @@
         {% endif %}
 
 
+
     <script>
  function test(value) {
         if (value==='음악') {
@@ -105,6 +125,7 @@
             location.href='/Video/list/edu';
         }
     }
+
 
     </script>
 
